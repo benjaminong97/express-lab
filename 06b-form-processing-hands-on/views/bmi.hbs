@@ -1,0 +1,27 @@
+{{#extends 'base'}}
+
+{{#block 'content'}}
+<div class ='container'>
+   <h1>
+       ENTER WEIGHT AND HEIGHT
+   </h1> 
+   <form method="POST">
+       <div>
+       <label>Weight: </label>
+       <input type="text" name="weight">
+       <label>Height: </label>
+       <input type='text' name="height">
+       <input type="radio"  name="units" value="metric" checked="check"/>
+       <label>Metric</label>
+       <input type="radio"  name="units" value="imperial"/>
+       <label class="form-check-label">Imperial</label>
+       <input type='submit'></button>
+   </div>
+   </form>
+</div>
+
+   
+
+{{/block}}
+
+{{/extends}}
