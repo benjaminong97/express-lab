@@ -1,6 +1,12 @@
 {{#extends 'base'}}
 
 {{#block 'content'}}
+<div class="container">
+    <h1>The Greatest Collection of Movies (not really)</h1>
+    <h6>
+        Don't see what you're looking for? Make a new entry:
+    </h6>
+    <a href="/create_movie_form" class="btn btn-primary btn-lg">Create</a>
     <table class="table">
         <thead>
             <tr>
@@ -15,9 +21,15 @@
             <td>{{this.id}}</td>
             <td>{{this.title}}</td>
             <td>{{this.plot}}</td>
+            <td>
+                <a href="/edit/{{this.id}}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="/movie/delete/{{this.id}}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
         </tr>
         {{/each}}
     </table>
+</div>
+
 {{/block}}
 
 {{/extends}}

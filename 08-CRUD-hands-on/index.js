@@ -45,7 +45,6 @@ app.post('/create_movie_form', async function(req,res){
 app.get('/edit/:movie_id', async function(req,res){
     //getting the unique identifier
     let movieId = req.params.movie_id
-    
 
     //extracting out current data to populate the form
     let response = await axios.get(BASE_API_URL+'movie/'+movieId)
@@ -69,12 +68,24 @@ app.post('/edit/:movie_id', async function(req,res){
         'plot': plot,
     }
 
-    await axios.put(BASE_API_URL+'movie/'+movieId, payload)
+    await axios.patch(BASE_API_URL+'movie/'+movieId, payload)
 
     res.redirect('/')
 })
 
+// delete
+app.get('/movie/delete/:movie_id', async function(req,res){
+    let movieId = req.params.movie_id
+    let response = await axios.get(BASE_API_URL+'movie/'+movieId)
+    let movieData = response.data.title +', '+ movieId
+    res.render('delete', {'movieData': movieData})
+} )
 
+app.post('/movie/delete/:movie_id', async function(req,res){
+    let movieId = req.params.movie_id
+    await axios.delete(BASE_API_URL+'movie/'+movieId)
+    res.redirect('/')
+})
 
 app.listen(3000, function(){
     console.log('server started')
