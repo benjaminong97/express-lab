@@ -1,0 +1,1 @@
+can run bash commands here, or in an .sh file (for mac and linux) (if finding yourself constantly doing the same commands)
